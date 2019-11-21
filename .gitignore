@@ -1,0 +1,16 @@
+/bin/
+/target/
+/target/*
+/.settings/*
+oauth2service/bin/*
+oauth2service/target/*
+oauth2service/.settings/*
+oauth2service/Users/*
+
+oauth2service/.project
+oauth2service/.gitignore
+oauth2service/.classpath
+oauth2service/.classpath
+oauth2service/.project
+oauth2service/.classpath
+oauth2service/.project

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.mihin</groupId>
+	<artifactId>oauth2server</artifactId>
+	<version>0.1.0</version>
+	<name>oauth2server</name>
+
+	<properties>
+		<!-- MAVEN -->
+		<java.version>1.8</java.version>
+		
+		<!-- SPRING FRAMEWORK -->
+		<springsecurityoauth2.version>2.3.3.RELEASE</springsecurityoauth2.version>
+		
+		<!-- PERSISTENCE & DB -->
+		<org.hibernate.version>5.2.10.Final</org.hibernate.version>
+		<hibarnate-jpa.version>1.0.0.Final</hibarnate-jpa.version>
+		<mysql.version>8.0.18</mysql.version>
+		
+		<!-- UTILITIES -->
+		<config.version>1.3.1</config.version>
+		
+		<!-- AWS -->
+		<aws.kms.version>1.11.276</aws.kms.version>
+		<bouncycastle.version>1.58</bouncycastle.version>
+		
+	</properties>
+	
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>2.2.1.RELEASE</version>
+	    <relativePath />
+	</parent>
+
+	<dependencies>
+<!-- SPRING FRAMEWORK -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-tomcat</artifactId>
+    </dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-jpa</artifactId>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework.security.oauth</groupId>
+	    <artifactId>spring-security-oauth2</artifactId>
+	    <version>2.3.6.RELEASE</version>
+	</dependency>
+		
+<!-- PERSISTENCE & DB -->
+	<dependency>
+		<groupId>org.hibernate.javax.persistence</groupId>
+		<artifactId>hibernate-jpa-2.1-api</artifactId>
+		<version>${hibarnate-jpa.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-c3p0</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+	</dependency>
+		
+<!-- UTILITIES -->
+	<dependency>
+		<groupId>com.typesafe</groupId>
+		<artifactId>config</artifactId>
+		<version>${config.version}</version>
+	</dependency>
+	
+<!-- Encryption -->
+	<dependency>
+		<groupId>org.bouncycastle</groupId>
+		<artifactId>bcprov-ext-jdk15on</artifactId>
+		<version>${bouncycastle.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>com.amazonaws</groupId>
+		<artifactId>aws-java-sdk-kms</artifactId>
+		<version>${aws.kms.version}</version>
+	</dependency>
+	</dependencies>
+
+	<!-- BUILD CONFIGURATION -->  
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+	               <executable>true</executable>
+	           </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+				<excludes>
+				<exclude>**/cloud/config/*.java</exclude>
+				</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
