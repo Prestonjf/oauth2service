@@ -24,7 +24,7 @@
 		
 		<!-- AWS -->
 		<aws.kms.version>1.11.276</aws.kms.version>
-		<bouncycastle.version>1.58</bouncycastle.version>
+		<bouncycastle.version>1.67</bouncycastle.version>
 		
 	</properties>
 	
